@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     return (
       <div>
         <h1>Profile Page</h1>
-        <Link href="/">Home</Link>
+        <Link href="/">Go Home</Link>
       </div>
     );
   }

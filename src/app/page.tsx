@@ -25,8 +25,8 @@ export default async function Page() {
  
   return (
     <>
-      <h1>Profile Page</h1>
-      <Link href="/profile">Profile</Link>
+      <h1>Home Page</h1> 
+      <Link href="/profile">Go Profile</Link>
       <br/>
       {fact}
     </>
