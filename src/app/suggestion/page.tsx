@@ -1,16 +1,16 @@
 import React from 'react';
 import { Metadata } from 'next';
-import Link from 'next/link';
+import SuggestedPage from "../components/suggested-page/page";
+import Data from "../server-components/fetch-activities";
 
 export const metadata: Metadata = {
-  title: 'Profile',
-}
+    title: 'Profile',
+  }
 
 const ProfilePage: React.FC = () => {
   return (
     <div>
-      <h1>Profile Page</h1>
-      <Link href="/">Go Home</Link>
+        <SuggestedPage Data={Data} />
     </div>
   );
 }
