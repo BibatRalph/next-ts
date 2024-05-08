@@ -1,18 +1,17 @@
 import React from 'react';
 import { Metadata } from 'next';
-import SuggestedPage from "../components/suggested-page/page";
-import Data from "../server-components/fetch-activities";
+import SuggestedPage from '../components/suggested-page/page';
+import FetchComponent from '../server-components/fetch-activities';
 
 export const metadata: Metadata = {
-    title: 'Profile',
-  }
+  title: 'Profile',
+};
 
-const ProfilePage: React.FC = () => {
+export default function ProfilePage(){
+
   return (
     <div>
-        <SuggestedPage Data={Data} />
+      <SuggestedPage child={<FetchComponent/>}/>
     </div>
   );
-}
-
-export default ProfilePage;
+};

@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
+import { useState } from "react";
 
-const ProfilePage: React.FC = (data) => {
+export default function SuggestedPage({ child }){
+
+  const [suggested, setSuggested] = useState (false);
+
   return (
     <div>
-      <h1>Suggested Activities</h1>
+      <p>{child}</p>
     </div>
   );
-}
-
-export default ProfilePage;
+};

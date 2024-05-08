@@ -1,17 +1,29 @@
-async function getData() {
-  const res = await fetch('https://www.boredapi.com/api/activity') 
+import React from 'react';
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
+async function fetchData() {
+  try {
+
+    const res = await fetch('https://www.boredapi.com/api/activity');
+
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
+    }
+
+    const data = await res.json();
+
+    return JSON.stringify(data);
+  } catch (error) {
+    console.error('Error fetching data:');
+    throw error; 
   }
- 
-  return res.json()
-}
- 
-export default async function Page() {
+};
 
-  const { fact } = await getData(); 
- 
-  return {fact} 
+const FetchComponent = () => {
 
-}
+  var test = fetchData();
+
+  return <p>{test}</p> ;
+
+};
+
+export default FetchComponent;
