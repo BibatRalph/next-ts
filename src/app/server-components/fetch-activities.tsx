@@ -22,7 +22,7 @@ const FetchComponent = () => {
 
   var test = fetchData();
 
-  return <p>{test}</p> ;
+  return <>{test}</> ;
 
 };
 

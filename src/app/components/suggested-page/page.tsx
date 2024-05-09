@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 
-export default function SuggestedPage({ child }){
+interface SuggestedPageProps {
+  child: Promise<any>;
+}
 
-  const [suggested, setSuggested] = useState (false);
+const SuggestedPage: React.FC<SuggestedPageProps> = ({ child }) => {
+  const [suggested, setSuggested] = useState(false);
 
   return (
     <div>
@@ -12,3 +15,5 @@ export default function SuggestedPage({ child }){
     </div>
   );
 };
+
+export default SuggestedPage;
