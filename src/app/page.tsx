@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import LikeButton from './components/like-button/page';
+import MouseEffect from '../app/components/mouse-components/effect';
+
 
 async function getData() {
   const res = await fetch('https://catfact.ninja/fact') 
@@ -26,6 +28,7 @@ export default async function Page() {
  
   return (
     <>
+    <MouseEffect></MouseEffect>
       <h1>Home Page</h1> 
       <Link href="/profile">Go Profile</Link>
       <br/>
