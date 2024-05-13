@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import LikeButton from './components/like-button/page';
-import MouseEffect from '../app/components/mouse-components/effect';
 
 
 async function getData() {
@@ -28,12 +27,17 @@ export default async function Page() {
  
   return (
     <>
-    <MouseEffect></MouseEffect>
-      <h1>Home Page</h1> 
+      {/* <h1>Home Page</h1> 
       <Link href="/profile">Go Profile</Link>
       <br/>
       {fact} 
-      <LikeButton />
+      <LikeButton /> */}
+        <div className="h-full overflow-y-auto bg-gray-100 flex justify-center items-center">
+        <div className="max-w-lg w-full">
+          {/* Content for the right side */}
+          {/* Center-aligned content */}
+        </div>
+      </div>
     </>
   )
 }

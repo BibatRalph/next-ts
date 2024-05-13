@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SideBar from './side-bar/page';
 
 import Navbar from './header';
 import { Suspense } from "react";
+
+import MouseEffect from '../app/components/mouse-components/effect';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar/>
-        {/* <Suspense fallback={<div>Loading...</div>}> */}
+      <MouseEffect></MouseEffect>
+        <div className="flex h-screen">
+          {/* <Navbar/> */}
+          <SideBar/>
           {children}
-        {/* </Suspense> */}
-        </body>
+        </div>
+      </body>
     </html>
   );
 }
