@@ -24,9 +24,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
       <MouseEffect></MouseEffect>
-        <div className="flex h-screen">
+        <div className="">
           {/* <Navbar/> */}
-          <SideBar/>
+          {/* <SideBar/> */}
           {children}
         </div>
       </body>
