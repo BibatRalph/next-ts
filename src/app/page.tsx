@@ -1,19 +1,20 @@
-import React from 'react';
+"use client"
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import LikeButton from './components/like-button/page';
 
 
-async function getData() {
-  const res = await fetch('https://catfact.ninja/fact') 
+// async function getData() {
+//   const res = await fetch('https://catfact.ninja/fact') 
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
+//   if (!res.ok) {
+//     throw new Error('Failed to fetch data')
+//   }
  
-  return res.json()
-}
+//   return res.json()
+// }
  
-export default async function Page() {
+export default function Page() {
 
   // Get all as JSON
 
@@ -23,8 +24,27 @@ export default async function Page() {
 
   // Using Destructure to get only specific field
 
-  const { fact } = await getData(); 
+  // const { fact } = await getData(); 
  
+  const [text, setText] = useState('Section 1'); // Initial text state
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section2 = document.getElementById('section2');
+      if (section2 && window.scrollY >= section2.offsetTop) {
+        setText('Section 2');
+      } else {
+        setText('Section 1');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Run only once on component mount
+
   return (
     <>
       {/* <div className="flex flex-col h-screen">
@@ -42,15 +62,16 @@ export default async function Page() {
         <p className="bottom-4 text-sm text-black-800">small text</p>
       </div>
     </div> */}
-
-    <div id="container">
-    <div id="container2">
-      <div className="box one"><div>1</div></div>
-      <div className="box two"><div>2</div></div>
-      <div className="box three"><div>3</div></div>
-      <div className="box four"><div>Last</div></div>
+ <div className="App">
+      <div id="section1" className="section">
+        <h1>{text}</h1>
+        {/* Content for section 1 */}
+      </div>
+      <div id="section2" className="section">
+        {/* Content for section 2 */}
+      </div>
     </div>
-  </div>
+
     </>                                                                                                             
   )
 }

@@ -23,57 +23,56 @@
   }
 }
 
-body {
-  margin:0;
-  font-family:Georgia;
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-snap-type: y mandatory; /* Enable vertical snapping */
 }
-#container .box {
-  width:100vw;
-  height:100vh;
-  display:inline-block;
-  position:relative;
+
+.App {
+  height: 100%;
 }
-#container .box > div {
-  width:100px;
-  height:100px;
-  font-size:96px;
-  color:#FFF;
-  position:absolute;
-  top:50%;
-  left:50%;
-  margin:-50px 0 0 -50px;
-  line-height:.7;
-  font-weight:bold;
+
+.section {
+  height: 100vh; /* Make sections cover the whole page */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  scroll-snap-align: start; /* Snap each section to the start */
 }
-#container {
-  overflow-y:scroll;
-  overflow-x:hidden;
-  transform: rotate(270deg) translateX(-100%);
-  transform-origin: top left;
-  background-color:#999;
-  position:absolute;
-  width:100vh;
-  height:100vw;
+
+#section1 {
+  background-color: lightblue;
 }
-#container2 {
-  transform: rotate(90deg) translateY(-100vh);
-  transform-origin: top left;
-  white-space:nowrap;
-  font-size:0;
+
+#section2 {
+  background-color: lightgreen;
+}
+
+h1 {
+  position: fixed; /* Make the text fixed */
+  top: 20px; /* Adjust as per your layout */
+  left: 20px; /* Adjust as per your layout */
 }
 
 .one {
   background-color: #45CCFF;
 }
+
 .two {
   background-color: #49E83E;
 }
+
 .three {
   background-color: #EDDE05;
 }
+
 .four {
   background-color: #E84B30;
 }
+
 
 
 /* Translating the content's X ruines the scrollbar length. */
