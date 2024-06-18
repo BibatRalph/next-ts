@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import LikeButton from './components/like-button/page';
 
+import Modal from './components/modal/modal';
 
 // async function getData() {
 //   const res = await fetch('https://catfact.ninja/fact') 
@@ -26,6 +27,11 @@ export default function Page() {
 
   // const { fact } = await getData(); 
  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   const [text, setText] = useState('Section 1'); // Initial text state
 
   useEffect(() => {
@@ -40,6 +46,7 @@ export default function Page() {
 
     window.addEventListener('scroll', handleScroll);
 
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -47,6 +54,18 @@ export default function Page() {
 
   return (
     <>
+
+    <div className="flex justify-center items-center h-screen">
+      <button onClick={openModal} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+        Open Modal
+      </button>
+
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <h2 className="text-xl font-bold mb-4">Modal Content</h2>
+        <p>Modal body text goes here.</p>
+      </Modal>
+    </div>
+
       {/* <div className="flex flex-col h-screen">
       <div className="flex-1 flex">
         <div className="w-1/2 bg-blue-100 p-4 rounded-l-lg relative">
@@ -62,15 +81,16 @@ export default function Page() {
         <p className="bottom-4 text-sm text-black-800">small text</p>
       </div>
     </div> */}
- <div className="App">
+    {/* <div className="App">
       <div id="section1" className="section">
         <h1>{text}</h1>
-        {/* Content for section 1 */}
+
       </div>
       <div id="section2" className="section">
-        {/* Content for section 2 */}
+
       </div>
-    </div>
+    </div> */}
+    
 
     </>                                                                                                             
   )
